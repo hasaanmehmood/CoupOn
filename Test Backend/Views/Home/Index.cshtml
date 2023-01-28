@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<Product>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div id="json"></div>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<pre>
+    @ViewData["json"]
+</pre>
+
+<script>
+    $.getJSON("/Home/Index", function (data) {
+        $("#json").text(JSON.stringify(data));
+    });</script>
